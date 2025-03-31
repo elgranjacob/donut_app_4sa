@@ -17,18 +17,19 @@ class DonutTab extends StatelessWidget {
     return GridView.builder(
         //Número de columnas
         //crossaxis: eje opuesto
-        gridDelegate:
-            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            //Proporción de aspecto ancho y largo
+            childAspectRatio: 1 / 1.5),
+        //Cuantos elementos    
         itemCount: 4,
         padding: const EdgeInsets.all(2),
         itemBuilder: (context, index) {
           return DonutTile(
-            donutFlavor: donutsOnSale[index][0],
-            donutPrice: donutsOnSale[index][1],
-            donutColor: donutsOnSale[index][2],
-            imageName: donutsOnSale[index][3]
-
-          );
+              donutFlavor: donutsOnSale[index][0],
+              donutPrice: donutsOnSale[index][1],
+              donutColor: donutsOnSale[index][2],
+              imageName: donutsOnSale[index][3]);
         });
   }
 }
