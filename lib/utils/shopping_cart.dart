@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ShoppingCart extends StatelessWidget {
-  const ShoppingCart({
-    super.key,
-  });
+  final List<Map<String, dynamic>> cartItems;
+  final double total;
+
+  const ShoppingCart({super.key, required this.cartItems, required this.total});
 
   @override
   Widget build(BuildContext context) {
@@ -13,32 +14,31 @@ class ShoppingCart extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Padding(
-            padding: EdgeInsets.only(left: 18),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  '2 Items | \$45',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 18),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '${cartItems.length} items | \$${total.toStringAsFixed(2)}',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
                 ),
-                Text('Delivery Charges Included')
-              ],
-            ),
+              ),
+              Text('Delivery Charges Included'),
+            ],
           ),
           ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
+              style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.pink,
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 24, vertical: 12)),
-            child: const Text(
-              'View Cart',
-              style: TextStyle(
-                  color: Colors.white, fontWeight: FontWeight.bold),
-            ),
-          )
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              ),
+              onPressed: () {},
+              child: const Text(
+                'View Cart',
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ))
         ],
       ),
     );
