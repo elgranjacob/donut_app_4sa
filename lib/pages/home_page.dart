@@ -133,10 +133,10 @@ class _HomePageSatate extends State<HomePage> {
                   child: TabBarView(
                     children: [
                       DonutTab(onAddToCart: addToCart),
-                      BurgerTab(),
-                      SmothiesTab(),
-                      SmothiesTab(),
-                      PizzaTab(),
+                      BurgerTab(onAddToCart: addToCart),
+                      PancakesTab(onAddToCart: addToCart),
+                      SmoothiesTab(onAddToCart: addToCart),
+                      PizzaTab(onAddToCart: addToCart),
                     ],
                   ),
                 ),
