@@ -25,7 +25,7 @@ class BurgerTab extends StatelessWidget {
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             //Proporción de aspecto ancho y largo
-            childAspectRatio: 1 / 1.5),
+            childAspectRatio: 1 / 2),
         //Cuantos elementos    
         itemCount: 8,
         padding: const EdgeInsets.all(12),

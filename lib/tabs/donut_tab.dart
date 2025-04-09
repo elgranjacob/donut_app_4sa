@@ -5,15 +5,15 @@ class DonutTab extends StatelessWidget {
   final Function(String, String) onAddToCart; 
   //list of donuts
   final List donutsOnSale = [
-  // [ DonutFlavor, donutStore, donutPrice, donutColor, imageName ]
-  ["Glazed", "Donut World", "28", Colors.amber, "lib/images/donuts/glazed_donut.png"],
-  ["Chocolate Sprinkle", "Sweet Rings", "35", Colors.brown, "lib/images/donuts/chocolate_sprinkle.png"],
-  ["Strawberry Frosted", "Pink Donuts", "32", Colors.pinkAccent, "lib/images/donuts/strawberry_frosted.png"],
-  ["Blueberry Bliss", "Dough Dream", "38", Colors.blueAccent, "lib/images/donuts/blueberry_donut.png"],
-  ["Maple Glaze", "Golden Glaze", "40", Colors.orange, "lib/images/donuts/maple_glaze.png"],
-  ["Lemon Zest", "Zesty Donuts", "36", Colors.yellow, "lib/images/donuts/lemon_donut.png"],
-  ["Cookies & Cream", "Oreo Heaven", "42", Colors.black54, "lib/images/donuts/cookies_cream.png"],
-  ["Cotton Candy", "Fantasy Donuts", "34", Colors.lightBlueAccent, "lib/images/donuts/cotton_candy.png"],
+  // [donutFlavor, donutStore, donutPrice, donutColor, imageName ]
+  ["Glazed", "Donut World", "28", Colors.amber, 'lib/images/glazed_donut.png'],
+  ["Chocolate", "Sweet Rings", "35", Colors.brown, 'lib/images/glazed_donut.png'],
+  ["Fresa", "Pink Donuts", "32", Colors.pink, 'lib/images/glazed_donut.png'],
+  ["Mora", "Dough Dream", "38", Colors.red, 'lib/images/glazed_donut.png'],
+  ["Maple", "Golden Glaze", "40", Colors.orange, 'lib/images/glazed_donut.png'],
+  ["Limon", "Zesty Donuts", "36", Colors.yellow, 'lib/images/glazed_donut.png'],
+  ["Crema", "Oreo Heaven", "42", Colors.black, 'lib/images/glazed_donut.png'],
+  ["Caramelo", "Fantasy Donuts", "34", Colors.blue, 'lib/images/glazed_donut.png']
 ];
 
   DonutTab({super.key, required this.onAddToCart});
@@ -23,12 +23,12 @@ class DonutTab extends StatelessWidget {
     return GridView.builder(
         //Número de columnas
         //crossaxis: eje opuesto
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             //Proporción de aspecto ancho y largo
-            childAspectRatio: 1 / 1.5),
+            childAspectRatio: 1/1.5),
         //Cuantos elementos    
-        itemCount: 8,
+        itemCount: 4,
         padding: const EdgeInsets.all(12),
         itemBuilder: (context, index) {
           return DonutTile(
