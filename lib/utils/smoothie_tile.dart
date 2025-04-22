@@ -6,16 +6,17 @@ class SmoothieTile extends StatelessWidget {
   final dynamic smoothieColor;
   final String imageName;
   final String smoothieStore;
-  final Function(String, String) onAddToCart; // Función pasada desde DonutTab
+  final Function(String, String) onAddToCart;
 
-  const SmoothieTile(
-      {super.key,
-      required this.smoothieFlavor,
-      required this.smoothiePrice,
-      required this.smoothieColor,
-      required this.imageName,
-      required this.smoothieStore,
-      required this.onAddToCart});
+  const SmoothieTile({
+    super.key,
+    required this.smoothieFlavor,
+    required this.smoothiePrice,
+    required this.smoothieColor,
+    required this.imageName,
+    required this.smoothieStore,
+    required this.onAddToCart,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +28,7 @@ class SmoothieTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(24),
         ),
         child: Column(
+          mainAxisSize: MainAxisSize.min, // evita que la columna crezca demasiado
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -34,70 +36,63 @@ class SmoothieTile extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     color: smoothieColor[100],
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(24),
-                        topRight: Radius.circular(24)),
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(24),
+                      topRight: Radius.circular(24),
+                    ),
                   ),
                   padding:
-                      const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+                      const EdgeInsets.symmetric(vertical: 6, horizontal: 14),
                   child: Text(
                     '\$$smoothiePrice',
                     style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        color: smoothieColor[800]),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: smoothieColor[800],
+                    ),
                   ),
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-              child: Image.asset(imageName),
+            Flexible(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                child: Image.asset(imageName, height: 100)
+              ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(6.0),
               child: Text(
                 smoothieFlavor,
                 style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 50,
-                    color: smoothieColor[800]),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 28,
+                  color: smoothieColor[800],
+                ),
               ),
             ),
             Text(
               smoothieStore,
-              style: TextStyle(fontSize: 20, color: Colors.grey),
+              style: const TextStyle(fontSize: 16, color: Colors.grey),
             ),
+            const SizedBox(height: 8),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: Icon(
-                      Icons.favorite_border_outlined,
-                      size: 50,
-                    ),
-                  ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, bottom: 12),
+                  child: const Icon(Icons.favorite_border_outlined, size: 30),
                 ),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 275),
-                    child: IconButton(
-                      onPressed: () {
-                        onAddToCart(
-                            smoothieFlavor, smoothiePrice); // Llamamos a la función
-                      },
-                      icon: Icon(
-                        Icons.add,
-                        size: 40,
-                      ),
-                    ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 20, bottom: 12),
+                  child: IconButton(
+                    onPressed: () => onAddToCart(smoothieFlavor, smoothiePrice),
+                    icon: const Icon(Icons.add, size: 30),
                   ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),

@@ -58,7 +58,7 @@ class DonutTile extends StatelessWidget {
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-                child: Image.asset(imageName, height: 100),
+                child: Image.asset(imageName, height: 100)
               ),
             ),
             Padding(

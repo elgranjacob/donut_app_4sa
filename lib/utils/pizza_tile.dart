@@ -6,16 +6,17 @@ class PizzaTile extends StatelessWidget {
   final dynamic pizzaColor;
   final String imageName;
   final String pizzaStore;
-  final Function(String, String) onAddToCart; // Función pasada desde DonutTab
+  final Function(String, String) onAddToCart;
 
-  const PizzaTile(
-      {super.key,
-      required this.pizzaFlavor,
-      required this.pizzaPrice,
-      required this.pizzaColor,
-      required this.imageName,
-      required this.pizzaStore,
-      required this.onAddToCart});
+  const PizzaTile({
+    super.key,
+    required this.pizzaFlavor,
+    required this.pizzaPrice,
+    required this.pizzaColor,
+    required this.imageName,
+    required this.pizzaStore,
+    required this.onAddToCart,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +28,7 @@ class PizzaTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(24),
         ),
         child: Column(
+          mainAxisSize: MainAxisSize.min, // evita que la columna crezca demasiado
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -34,70 +36,63 @@ class PizzaTile extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     color: pizzaColor[100],
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(24),
-                        topRight: Radius.circular(24)),
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(24),
+                      topRight: Radius.circular(24),
+                    ),
                   ),
                   padding:
-                      const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+                      const EdgeInsets.symmetric(vertical: 6, horizontal: 14),
                   child: Text(
                     '\$$pizzaPrice',
                     style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        color: pizzaColor[800]),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: pizzaColor[800],
+                    ),
                   ),
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-              child: Image.asset(imageName),
+            Flexible(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                child: Image.asset(imageName, height: 100)
+              ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(6.0),
               child: Text(
                 pizzaFlavor,
                 style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 50,
-                    color: pizzaColor[800]),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 28,
+                  color: pizzaColor[800],
+                ),
               ),
             ),
             Text(
               pizzaStore,
-              style: TextStyle(fontSize: 20, color: Colors.grey),
+              style: const TextStyle(fontSize: 16, color: Colors.grey),
             ),
+            const SizedBox(height: 8),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: Icon(
-                      Icons.favorite_border_outlined,
-                      size: 50,
-                    ),
-                  ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, bottom: 12),
+                  child: const Icon(Icons.favorite_border_outlined, size: 30),
                 ),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 275),
-                    child: IconButton(
-                      onPressed: () {
-                        onAddToCart(
-                            pizzaFlavor, pizzaPrice); // Llamamos a la función
-                      },
-                      icon: Icon(
-                        Icons.add,
-                        size: 40,
-                      ),
-                    ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 20, bottom: 12),
+                  child: IconButton(
+                    onPressed: () => onAddToCart(pizzaFlavor, pizzaPrice),
+                    icon: const Icon(Icons.add, size: 30),
                   ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),

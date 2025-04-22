@@ -19,28 +19,25 @@ class PizzaTab extends StatelessWidget {
 
   PizzaTab({super.key, required this.onAddToCart});
 //Sliver: scrol presonalizado para listas o diseños grandes
-  @override
+ @override
   Widget build(BuildContext context) {
     return GridView.builder(
-        //Número de columnas
-        //crossaxis: eje opuesto
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            //Proporción de aspecto ancho y largo
-            childAspectRatio: 1 / 1.5),
-        //Cuantos elementos    
-        itemCount: 8,
-        padding: const EdgeInsets.all(12),
-        itemBuilder: (context, index) {
-          return PizzaTile(
-              pizzaFlavor: pizzasOnSale[index][0],
-              pizzaStore: pizzasOnSale[index][1],
-              pizzaPrice: pizzasOnSale[index][2],
-              pizzaColor: pizzasOnSale[index][3],
-              imageName: pizzasOnSale[index][4],
-              onAddToCart: onAddToCart,
-              );
-
-        });
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 2 / 3, // ajustado aquí
+      ),
+      itemCount: pizzasOnSale.length,
+      padding: const EdgeInsets.all(12),
+      itemBuilder: (context, index) {
+        return PizzaTile(
+          pizzaFlavor: pizzasOnSale[index][0],
+          pizzaStore: pizzasOnSale[index][1],
+          pizzaPrice: pizzasOnSale[index][2],
+          pizzaColor: pizzasOnSale[index][3],
+          imageName: pizzasOnSale[index][4],
+          onAddToCart: onAddToCart,
+        );
+      },
+    );
   }
 }

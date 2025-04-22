@@ -5,7 +5,7 @@ class BurgerTab extends StatelessWidget {
   final Function(String, String) onAddToCart; 
   //list of donuts
   final List burgersOnSale = [
-  // [ BurgerFlavor, burgerStore, burgerPrice, burgerColor, imageName ]
+  // [ burgerFlavor, burgerStore, burgerPrice, burgerColor, imageName ]
   ["Cheeseburger", "Big Bite Burgers", "59", Colors.amber, "lib/images/cheeseburger.png"],
   ["Double Bacon", "Burger Palace", "75", Colors.redAccent, "lib/images/double_bacon.png"],
   ["Veggie Delight", "Green Buns", "52", Colors.green, "lib/images/veggie_burger.png"],
@@ -17,28 +17,25 @@ class BurgerTab extends StatelessWidget {
 ];
   BurgerTab({super.key, required this.onAddToCart});
 //Sliver: scrol presonalizado para listas o diseños grandes
-  @override
+   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-        //Número de columnas
-        //crossaxis: eje opuesto
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            //Proporción de aspecto ancho y largo
-            childAspectRatio: 1 / 2),
-        //Cuantos elementos    
-        itemCount: 8,
-        padding: const EdgeInsets.all(12),
-        itemBuilder: (context, index) {
-          return BurgerTile(
-              burgerFlavor: burgersOnSale[index][0],
-              burgerStore: burgersOnSale[index][1],
-              burgerPrice: burgersOnSale[index][2],
-              burgerColor: burgersOnSale[index][3],
-              imageName: burgersOnSale[index][4],
-              onAddToCart: onAddToCart,
-              );
-
-        });
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 2 / 3, // ajustado aquí
+      ),
+      itemCount: burgersOnSale.length,
+      padding: const EdgeInsets.all(12),
+      itemBuilder: (context, index) {
+        return BurgerTile(
+          burgerFlavor: burgersOnSale[index][0],
+          burgerStore: burgersOnSale[index][1],
+          burgerPrice: burgersOnSale[index][2],
+          burgerColor: burgersOnSale[index][3],
+          imageName: burgersOnSale[index][4],
+          onAddToCart: onAddToCart,
+        );
+      },
+    );
   }
 }

@@ -22,25 +22,22 @@ class SmoothiesTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-        //Número de columnas
-        //crossaxis: eje opuesto
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            //Proporción de aspecto ancho y largo
-            childAspectRatio: 1 / 1.5),
-        //Cuantos elementos    
-        itemCount: 8,
-        padding: const EdgeInsets.all(12),
-        itemBuilder: (context, index) {
-          return SmoothieTile(
-              smoothieFlavor: smoothiesOnSale[index][0],
-              smoothieStore: smoothiesOnSale[index][1],
-              smoothiePrice: smoothiesOnSale[index][2],
-              smoothieColor: smoothiesOnSale[index][3],
-              imageName: smoothiesOnSale[index][4],
-              onAddToCart: onAddToCart,
-              );
-
-        });
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 2 / 3, // ajustado aquí
+      ),
+      itemCount: smoothiesOnSale.length,
+      padding: const EdgeInsets.all(12),
+      itemBuilder: (context, index) {
+        return SmoothieTile(
+          smoothieFlavor: smoothiesOnSale[index][0],
+          smoothieStore: smoothiesOnSale[index][1],
+          smoothiePrice: smoothiesOnSale[index][2],
+          smoothieColor: smoothiesOnSale[index][3],
+          imageName: smoothiesOnSale[index][4],
+          onAddToCart: onAddToCart,
+        );
+      },
+    );
   }
 }
