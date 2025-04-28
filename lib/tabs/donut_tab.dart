@@ -11,56 +11,56 @@ class DonutTab extends StatelessWidget {
       "Donut World",
       "28",
       Colors.amber,
-      'lib/images/donuts/glaseada.png'
+      'lib/images/glaseada.png'
     ],
     [
       "Chocolate",
       "Sweet Rings",
       "35",
       Colors.brown,
-      'lib/images/donuts/chocolate.png'
+      'lib/images/chocolate.png'
     ],
     [
       "Fresa",
       "Pink Donuts",
       "32",
       Colors.pink,
-      'lib/images/donuts/fresa.png'
+      'lib/images/fresa.png'
     ],
     [
       "Mora",
       "Dough Dream",
       "38",
       Colors.red,
-      'lib/images/donuts/mora.png'
+      'lib/images/mora.png'
     ],
     [
       "Maple",
       "Golden Glaze",
       "40",
       Colors.orange,
-      'lib/images/donuts/maple.png'
+      'lib/images/maple.png'
     ],
     [
       "Limon",
       "Zesty Donuts",
       "36",
       Colors.yellow,
-      'lib/images/donuts/limon.png'
+      'lib/images/limon.png'
     ],
     [
       "Crema",
       "Oreo Heaven",
       "42",
       Colors.red,
-      'lib/images/donuts/crema.png'
+      'lib/images/crema.png'
     ],
     [
       "Caramelo",
       "Fantasy Donuts",
       "34",
       Colors.blue,
-      'lib/images/donuts/caramelo.png'
+      'lib/images/caramelo.png'
     ]
   ];
 

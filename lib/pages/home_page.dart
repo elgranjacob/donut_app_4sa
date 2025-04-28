@@ -36,17 +36,17 @@ class _HomePageSatate extends State<HomePage> {
     Column(
       children: [
         const MyTab(
-          iconPath: 'lib/icons/smoothie.png',
+          iconPath: 'lib/icons/pancakes.png',
         ),
-        Text('Smoothie')
+        Text('Pancakes')
       ],
     ),
     Column(
       children: [
         const MyTab(
-          iconPath: 'lib/icons/pancakes.png',
+          iconPath: 'lib/icons/smoothie.png',
         ),
-        Text('Pancakes')
+        Text('Smoothies')
       ],
     ),
     Column(
