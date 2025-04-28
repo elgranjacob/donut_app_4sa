@@ -28,7 +28,7 @@ class PizzaTab extends StatelessWidget {
       ),
       itemCount: pizzasOnSale.length,
       padding: const EdgeInsets.all(12),
-      itemBuilder: (context, index) {
+      itemBuilder: (context, index) { 
         return PizzaTile(
           pizzaFlavor: pizzasOnSale[index][0],
           pizzaStore: pizzasOnSale[index][1],
