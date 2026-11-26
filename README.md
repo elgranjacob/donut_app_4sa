@@ -1,16 +1,22 @@
-# donut_app_4sa
+# Donut App
 
-A new Flutter project.
+App de pedidos de comida hecha en **Flutter**, con un catálogo por categorías y carrito de compras.
 
-## Getting Started
+## Funcionalidades
+- Navegación por pestañas: **Donuts, Burgers, Pancakes, Smoothies y Pizza**.
+- Tarjetas de producto con imagen, sabor y precio.
+- Agregar productos al carrito y ver el total del pedido.
 
-This project is a starting point for a Flutter application.
+## Estructura
+- `lib/pages/home_page.dart` — pantalla principal, pestañas y lógica del carrito.
+- `lib/tabs/` — una pestaña por categoría.
+- `lib/utils/` — componentes reutilizables (tarjetas de producto, pestaña, carrito).
 
-A few resources to get you started if this is your first Flutter project:
+## Tecnologías
+Flutter · Dart
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Ejecutar
+```bash
+flutter pub get
+flutter run
+```
